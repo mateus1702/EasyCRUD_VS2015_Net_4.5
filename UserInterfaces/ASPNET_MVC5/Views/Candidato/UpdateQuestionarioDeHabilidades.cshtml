@@ -1,0 +1,910 @@
+﻿@using ASPNET_MVC5.Models
+@using ASPNET_MVC5.Models.Input
+@using ASPNET_MVC5.Infrastructure
+
+@model QuestionarioDeHabilidadesInputModel
+
+@{
+    ViewBag.Title = "Conhecimentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edição de candidato</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Conhecimentos</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ionic, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ionic, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ionic, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ionic, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ionic, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ionic, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Ionic, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Android, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Android, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Android, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Android, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Android, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Android, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Android, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IOS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.IOS, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.IOS, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.IOS, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.IOS, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.IOS, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.IOS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.HTML, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.HTML, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.HTML, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.HTML, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.HTML, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.HTML, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.HTML, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CSS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CSS, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CSS, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CSS, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CSS, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CSS, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CSS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Bootstrap, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Bootstrap, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Bootstrap, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Bootstrap, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Bootstrap, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Bootstrap, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Bootstrap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.JQuery, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.JQuery, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.JQuery, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.JQuery, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.JQuery, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.JQuery, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.JQuery, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AngularJS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AngularJS, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AngularJS, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AngularJS, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AngularJS, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AngularJS, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.AngularJS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Java, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Java, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Java, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Java, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Java, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Java, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Java, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AspNetMVC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AspNetMVC, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AspNetMVC, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AspNetMVC, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AspNetMVC, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.AspNetMVC, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.AspNetMVC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.C, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.C, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.C, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.C, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.C, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.C, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.C, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CPlusPlus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CPlusPlus, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CPlusPlus, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CPlusPlus, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CPlusPlus, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.CPlusPlus, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CPlusPlus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cake, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Cake, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Cake, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Cake, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Cake, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Cake, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Cake, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Django, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Django, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Django, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Django, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Django, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Django, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Django, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Magento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Magento, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Magento, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Magento, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Magento, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Magento, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Magento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PHP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.PHP, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.PHP, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.PHP, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.PHP, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.PHP, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.PHP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Wordpress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Wordpress, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Wordpress, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Wordpress, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Wordpress, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Wordpress, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Wordpress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phyton, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Phyton, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Phyton, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Phyton, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Phyton, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Phyton, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Phyton, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ruby, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ruby, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ruby, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ruby, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ruby, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Ruby, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Ruby, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SQLServer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SQLServer, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SQLServer, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SQLServer, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SQLServer, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SQLServer, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.SQLServer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MySQL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.MySQL, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.MySQL, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.MySQL, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.MySQL, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.MySQL, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.MySQL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SalesForce, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SalesForce, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SalesForce, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SalesForce, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SalesForce, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SalesForce, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.SalesForce, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Photoshop, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Photoshop, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Photoshop, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Photoshop, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Photoshop, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Photoshop, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Photoshop, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Illustrator, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Illustrator, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Illustrator, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Illustrator, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Illustrator, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.Illustrator, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Illustrator, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SEO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  text-center">
+                <div class="row">
+                    <div class="col-md-1">
+                        Não conheço
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SEO, NivelDeConhecimento.um, new { id = "um" })
+                        @Html.Label("um", ((int)NivelDeConhecimento.um).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SEO, NivelDeConhecimento.dois, new { id = "dois" })
+                        @Html.Label("dois", ((int)NivelDeConhecimento.dois).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SEO, NivelDeConhecimento.tres, new { id = "tres" })
+                        @Html.Label("tres", ((int)NivelDeConhecimento.tres).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SEO, NivelDeConhecimento.quatro, new { id = "quatro" })
+                        @Html.Label("quatro", ((int)NivelDeConhecimento.quatro).ToString())
+                    </div>
+                    <div class="col-md-2">
+                        @Html.RadioButtonFor(model => model.SEO, NivelDeConhecimento.cinco, new { id = "cinco" })
+                        @Html.Label("cinco", ((int)NivelDeConhecimento.cinco).ToString())
+                    </div>
+                    <div class="col-md-1">
+                        Sênior
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.SEO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div id="questionarioDeHabilidadesField" class="form-group">
+            @Html.LabelFor(model => model.Outras, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Outras, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Outras, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LinkCRUDRepository, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LinkCRUDRepository, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LinkCRUDRepository, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PortifolioURL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PortifolioURL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PortifolioURL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Voltar", "UpdatePreferenciasDeTrabalho", null, new { @class = "btn btn-default" })
+                <input type="submit" value="Próximo" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar a listagem", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

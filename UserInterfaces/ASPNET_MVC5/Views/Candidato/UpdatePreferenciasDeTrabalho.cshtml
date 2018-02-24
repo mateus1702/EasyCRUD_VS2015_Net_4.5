@@ -1,0 +1,105 @@
+﻿@using ASPNET_MVC5.Models
+@using ASPNET_MVC5.Models.Input
+@using ASPNET_MVC5.Infrastructure
+
+@model PreferenciasDeTrabalhoInputModel
+
+@{
+    ViewBag.Title = "Informações de trabalho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edição de candidato</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Informações de trabalho</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Disponibilidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.Disponibilidade,Disponibilidades.Ate4HorasPorDia, new { id = "Ate4HorasPorDia" })
+                        @Html.Label("Ate4HorasPorDia", Helpers.GetEnumDescription(Disponibilidades.Ate4HorasPorDia))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.Disponibilidade,Disponibilidades.De4a6HorasPorDia, new { id = "De4a6HorasPorDia" })
+                        @Html.Label("De4a6HorasPorDia", Helpers.GetEnumDescription(Disponibilidades.De4a6HorasPorDia))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.Disponibilidade,Disponibilidades.De6a8HorasPorDia, new { id = "De6a8HorasPorDia" })
+                        @Html.Label("De6a8HorasPorDia", Helpers.GetEnumDescription(Disponibilidades.De6a8HorasPorDia))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.Disponibilidade,Disponibilidades.AcimaDe8HorasPorDia, new { id = "AcimaDe8HorasPorDia" })
+                        @Html.Label("AcimaDe8HorasPorDia", Helpers.GetEnumDescription(Disponibilidades.AcimaDe8HorasPorDia))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.Disponibilidade,Disponibilidades.ApenasNosFinaisDeSemana, new { id = "ApenasNosFinaisDeSemana" })
+                        @Html.Label("ApenasNosFinaisDeSemana", Helpers.GetEnumDescription(Disponibilidades.ApenasNosFinaisDeSemana))
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.Disponibilidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HorarioDeTrabalho, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.HorarioDeTrabalho,HorariosDeTrabalho.De8as12, new { id = "De8as12" })
+                        @Html.Label("De8as12", Helpers.GetEnumDescription(HorariosDeTrabalho.De8as12))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.HorarioDeTrabalho,HorariosDeTrabalho.De13as18, new { id = "De13as18" })
+                        @Html.Label("De13as18", Helpers.GetEnumDescription(HorariosDeTrabalho.De13as18))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.HorarioDeTrabalho,HorariosDeTrabalho.De19as22, new { id = "De19as22" })
+                        @Html.Label("De19as22", Helpers.GetEnumDescription(HorariosDeTrabalho.De19as22))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.HorarioDeTrabalho,HorariosDeTrabalho.De22emDiante, new { id = "De22emDiante" })
+                        @Html.Label("De22emDiante", Helpers.GetEnumDescription(HorariosDeTrabalho.De22emDiante))
+                    </div>
+                    <div class="col-md-12 text-left">
+                        @Html.RadioButtonFor(model => model.HorarioDeTrabalho,HorariosDeTrabalho.ComercialDe8as18, new { id = "ComercialDe8as18" })
+                        @Html.Label("ComercialDe8as18", Helpers.GetEnumDescription(HorariosDeTrabalho.ComercialDe8as18))
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.HorarioDeTrabalho, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PretensaoRemuneracaoPorHora, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PretensaoRemuneracaoPorHora, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PretensaoRemuneracaoPorHora, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Voltar", "UpdateInformacoesDeContato", null, new { @class = "btn btn-default" })
+                <input type="submit" value="Próximo" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar a listagem", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

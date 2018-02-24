@@ -1,0 +1,31 @@
+ <loading ng-if="loading"></loading>
+ <div ng-if="!loading">
+   <div class="container body-content">
+     <h2>Listagem de candidatos</h2>
+     <p><a href="#!/candidato/create">Cadastrar</a></p>
+     <table class="table" ng-if="!loading">
+        <tbody>
+           <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Skype</th>
+              <th>Telefone</th>
+              <th></th>
+           </tr>
+           <tr ng-repeat="candidato in $ctrl.candidatos">
+             <td>{{candidato.Nome}}</td>
+             <td>{{candidato.Email}}</td>
+             <td>{{candidato.Skype}}</td>
+             <td>{{candidato.Telefone}}</td>
+             <td>
+               <a href="#!/candidato/update/{{candidato.Id}}">Editar</a> |
+               <a href="#!/candidato/read/{{candidato.Id}}" ng-click="read(candidato.Id)">Visualizar</a> |
+               <a href="#!/candidato/delete/{{candidato.Id}}">Deletar</a>
+             </td>
+           </tr>
+        </tbody>
+     </table>
+     <hr />
+     <footer-component></footer-component>
+   </div>
+ </div>

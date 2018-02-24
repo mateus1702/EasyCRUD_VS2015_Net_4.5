@@ -1,0 +1,394 @@
+﻿@using ASPNET_MVC5.Models
+@using ASPNET_MVC5.Models.Input
+@using ASPNET_MVC5.Infrastructure
+
+@model ASPNET_MVC5.Models.View.CandidatoViewModel
+
+@{
+    ViewBag.Title = "Visualizar candidato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Visualizar candidato</h2>
+
+<div>
+    <hr />
+    <h4>Informações de contato</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Skype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Skype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefoneEWhatsApp)
+        </dt>
+
+        <dd>
+            @(Model.TelefoneEWhatsApp ? "Sim" : "Não")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Linkedin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Linkedin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Localizacao.Cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Localizacao.Cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Localizacao.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Localizacao.Estado)
+        </dd>
+
+    </dl>
+    <hr />
+    <h4>Preferências de trabalho</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Disponibilidade)
+        </dt>
+
+        <dd>
+            @Helpers.GetEnumDescription((Disponibilidades)Model.Disponibilidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorarioDeTrabalho)
+        </dt>
+
+        <dd>
+            @Helpers.GetEnumDescription((HorariosDeTrabalho)Model.HorarioDeTrabalho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PretensaoRemuneracaoPorHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PretensaoRemuneracaoPorHora)
+        </dd>
+
+    </dl>
+    <hr />
+    <h4>Conhecimentos</h4>
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Ionic)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.Ionic
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Android)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.Android
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.IOS)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.IOS
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.HTML)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.HTML.HasValue ? Model.Conhecimentos.HTML.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.CSS)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.CSS.HasValue ? Model.Conhecimentos.CSS.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Bootstrap)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.Bootstrap
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.JQuery)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.JQuery
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.AngularJS)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.AngularJS
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Java)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Java.HasValue ? Model.Conhecimentos.Java.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.AspNetMVC)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.AspNetMVC
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.C)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.C.HasValue ? Model.Conhecimentos.C.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.CPlusPlus)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.CPlusPlus.HasValue ? Model.Conhecimentos.CPlusPlus.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Cake)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Cake.HasValue ? Model.Conhecimentos.Cake.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Django)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Django.HasValue ? Model.Conhecimentos.Django.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Magento)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Magento.HasValue ? Model.Conhecimentos.Magento.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.PHP)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.PHP
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Wordpress)
+        </dt>
+
+        <dd>
+            Nível @Model.Conhecimentos.Wordpress
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Phyton)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Phyton.HasValue ? Model.Conhecimentos.Phyton.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Ruby)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Ruby.HasValue ? Model.Conhecimentos.Ruby.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.SQLServer)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.SQLServer.HasValue ? Model.Conhecimentos.SQLServer.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.MySQL)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.MySQL.HasValue ? Model.Conhecimentos.MySQL.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.SalesForce)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.SalesForce.HasValue ? Model.Conhecimentos.SalesForce.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Photoshop)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Photoshop.HasValue ? Model.Conhecimentos.Photoshop.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Illustrator)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.Illustrator.HasValue ? Model.Conhecimentos.Illustrator.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.SEO)
+        </dt>
+
+        <dd>
+            Nível @(Model.Conhecimentos.SEO.HasValue ? Model.Conhecimentos.SEO.Value.ToString() : "não definido" )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.Outras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conhecimentos.Outras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conhecimentos.LinkCRUDRepository)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conhecimentos.LinkCRUDRepository)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PortifolioURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PortifolioURL)
+        </dd>
+    </dl>
+    <hr />
+    <h4>Informações para pagamento</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacaoParaPagamento.NomeTitular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformacaoParaPagamento.NomeTitular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacaoParaPagamento.CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformacaoParaPagamento.CPF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacaoParaPagamento.Banco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformacaoParaPagamento.Banco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacaoParaPagamento.Agencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformacaoParaPagamento.Agencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacaoParaPagamento.NumeroDaConta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformacaoParaPagamento.NumeroDaConta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacaoParaPagamento.TipoDeConta)
+        </dt>
+
+        <dd>
+            @Helpers.GetEnumDescription((TiposDeConta)Model.InformacaoParaPagamento.TipoDeConta)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Update", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar a listagem", "List")
+</p>

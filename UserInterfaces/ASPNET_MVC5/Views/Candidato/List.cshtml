@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ASPNET_MVC5.Models.View.CandidatoListViewModel>
+
+@{
+    ViewBag.Title = "Listagem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de candidatos</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>              
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>      
+        <td>
+            @Html.ActionLink("Editar", "Update", new { id=item.Id }) |
+            @Html.ActionLink("Visualizar", "Read", new { id=item.Id }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

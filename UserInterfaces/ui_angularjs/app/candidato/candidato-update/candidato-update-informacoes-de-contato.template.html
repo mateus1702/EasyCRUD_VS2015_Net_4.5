@@ -1,0 +1,89 @@
+<div class="container body-content">
+  <h2>Edição de candidato</h2>
+  <form>
+      <div class="form-horizontal">
+          <h4>Informações de contato</h4>
+          <hr>
+          <div class="form-group">
+              <label class="control-label col-md-2" for="Nome">Nome</label>
+              <div class="col-md-10">
+                  <input ng-model="informacoesDeContato.Nome" class="form-control text-box single-line" type="text">
+                  <span class="field-validation-valid text-danger">
+                    <span ng-hide="informacoesDeContato.validation.nomeRequiredOk">Campo nome obrigatório.</span>
+                  </span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-md-2" for="Nome">Email</label>
+              <div class="col-md-10">
+                  <input ng-model="informacoesDeContato.Email" class="form-control text-box single-line" type="text">
+                  <span class="field-validation-valid text-danger">
+                    <span ng-hide="informacoesDeContato.validation.emailRequiredOk">Campo email obrigatório.</span>
+                    <span ng-hide="informacoesDeContato.validation.emailValidOk">Campo email inválido.</span>
+                  </span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-md-2" for="Nome">Skype</label>
+              <div class="col-md-10">
+                  <input ng-model="informacoesDeContato.Skype" class="form-control text-box single-line" type="text">
+                  <span class="field-validation-valid text-danger">
+                    <span ng-hide="informacoesDeContato.validation.skypeRequiredOk">Campo Skype obrigatório.</span>
+                  </span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-md-2" for="Nome">Telefone</label>
+              <div class="col-md-10">
+                  <input ng-model="informacoesDeContato.Telefone" class="form-control text-box single-line" type="text">
+                  <span class="field-validation-valid text-danger">
+                    <span ng-hide="informacoesDeContato.validation.telefoneRequiredOk">Campo telefone obrigatório.</span>
+                    <span ng-hide="informacoesDeContato.validation.telefoneIntegerOk">Campo telefone inválido.</span>
+                  </span>
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-2">Telefone é WhatsApp?</label>
+            <div class="col-md-10">
+               <div class="checkbox">
+                 <input ng-model="informacoesDeContato.TelefoneEWhatsApp" class="check-box" value="on" type="checkbox">
+                 <span class="field-validation-valid text-danger"></span>
+               </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-md-2" for="Nome">LinkedIn</label>
+              <div class="col-md-10">
+                  <input ng-model="informacoesDeContato.Linkedin" class="form-control text-box single-line" type="text">
+                  <span class="field-validation-valid text-danger"></span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-md-2" for="Nome">Cidade</label>
+              <div class="col-md-10">
+                  <input ng-model="informacoesDeContato.Cidade" class="form-control text-box single-line" type="text">
+                  <span class="field-validation-valid text-danger">
+                    <span ng-hide="informacoesDeContato.validation.cidadeRequiredOk">Campo cidade obrigatório.</span>
+                  </span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-md-2" for="Nome">Estado</label>
+              <div class="col-md-10">
+                  <input ng-model="informacoesDeContato.Estado" class="form-control text-box single-line" type="text">
+                  <span class="field-validation-valid text-danger">
+                    <span ng-hide="informacoesDeContato.validation.estadoRequiredOk">Campo estado obrigatório.</span>
+                  </span>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-offset-2 col-md-10">
+                  <input ng-click="next()" value="Próximo" class="btn btn-default" type="submit">
+              </div>
+          </div>
+      </div>
+  </form>
+  <div><a href="#!/candidato">Voltar a listagem</a></div>
+  <hr />
+  <footer-component></footer-component>
+</div>

@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron">
+    <h1>Banco de talentos</h1>
+    <p class="lead">Cadastro, edição, remoção e listagem de candidatos.</p>
+    <p>@Html.ActionLink("Clique aqui para começar!", "List", new { controller = "Candidato" }, new { @class = "btn btn-primary btn-lg" })</p>
+</div>

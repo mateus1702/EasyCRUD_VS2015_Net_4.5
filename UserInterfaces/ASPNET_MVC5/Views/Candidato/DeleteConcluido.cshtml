@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Cadastro concluído";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Remoção de candidato</h2>
+
+
+<div class="form-horizontal">
+    <h4>A remoção foi efetuada com sucesso.</h4>
+</div>
+
+<div>
+    @Html.ActionLink("Voltar a listagem", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

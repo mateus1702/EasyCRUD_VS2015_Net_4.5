@@ -1,0 +1,33 @@
+ <loading ng-if="loading"></loading>
+ <div ng-if="!loading">
+   <div class="container body-content">
+    <h2>Remoção de candidato</h2>
+    <h3>Tem certeza que deseja deletar este candidato?</h3>
+    <div>
+        <hr>
+        <h4>Informações do candidato</h4>
+        <dl class="dl-horizontal">
+            <dt>
+                Nome
+            </dt>
+            <dd>
+                {{candidato.Nome}}
+            </dd>
+            <dt>
+                Email
+            </dt>
+            <dd>
+                {{candidato.Email}}
+            </dd>
+        </dl>
+        <form>
+            <div class="form-actions no-color">
+                <input ng-click="delete()" value="Deletar" class="btn btn-default" type="submit"> |
+                <a href="#!/candidato">Voltar a listagem</a>
+            </div>
+        </form>
+    </div>
+    <hr />
+    <footer-component></footer-component>
+  </div>
+ </div>

@@ -1,0 +1,300 @@
+<loading ng-if="loading"></loading>
+<div ng-if="!loading">
+  <div class="container body-content">
+      <h2>Visualizar candidato</h2>
+      <div>
+          <hr>
+          <h4>Informações de contato</h4>
+          <dl class="dl-horizontal">
+              <dt>
+                  Nome
+              </dt>
+              <dd>
+                  {{candidato.Nome}}
+              </dd>
+              <dt>
+                  Email
+              </dt>
+              <dd>
+                  {{candidato.Email}}
+              </dd>
+              <dt>
+                  Skype
+              </dt>
+              <dd>
+                  {{candidato.Skype}}
+              </dd>
+              <dt>
+                  Telefone
+              </dt>
+              <dd>
+                  {{candidato.Telefone}}
+              </dd>
+              <dt>
+                  Telefone é WhatsApp?
+              </dt>
+              <dd>
+                  {{candidato.TelefoneEWhatsApp ? 'Sim' : 'Não'}}
+              </dd>
+              <dt>
+                  LinkedIn
+              </dt>
+              <dd>
+                  {{candidato.Linkedin}}
+              </dd>
+              <dt>
+                  Cidade
+              </dt>
+              <dd>
+                  {{candidato.Localizacao.Cidade}}
+              </dd>
+              <dt>
+                  Estado
+              </dt>
+              <dd>
+                  {{candidato.Localizacao.Estado}}
+              </dd>
+          </dl>
+          <hr>
+          <h4>Preferências de trabalho</h4>
+          <dl class="dl-horizontal">
+              <dt>
+                  Disponibilidade
+              </dt>
+              <dd>
+                  {{getDisponibilidadeDescription(candidato.Disponibilidade)}}
+              </dd>
+              <dt>
+                  Horário de trabalho
+              </dt>
+              <dd>
+                  {{getHorarioDeTrabalhoDescription(candidato.HorarioDeTrabalho)}}
+              </dd>
+              <dt>
+                  Pretenção de salário por hora
+              </dt>
+              <dd>
+                  R$ {{candidato.PretensaoRemuneracaoPorHora | number: 2}}
+              </dd>
+          </dl>
+          <hr>
+          <h4>Conhecimentos</h4>
+          <dl class="dl-horizontal">
+              <dt>
+                  Ionic
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Ionic}}
+              </dd>
+              <dt>
+                  Android
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Android}}
+              </dd>
+              <dt>
+                  IOS
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.IOS}}
+              </dd>
+              <dt>
+                  HTML
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.HTML}}
+              </dd>
+              <dt>
+                  CSS
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.CSS}}
+              </dd>
+              <dt>
+                  Bootstrap
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Bootstrap}}
+              </dd>
+              <dt>
+                  JQuery
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.JQuery}}
+              </dd>
+              <dt>
+                  AngularJS
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.AngularJS}}
+              </dd>
+              <dt>
+                  Java
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Java}}
+              </dd>
+              <dt>
+                  ASP Net MVC
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.AspNetMVC}}
+              </dd>
+              <dt>
+                  C
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.C}}
+              </dd>
+              <dt>
+                  C++
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.CPlusPlus}}
+              </dd>
+              <dt>
+                  Cake
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Cake}}
+              </dd>
+              <dt>
+                  Django
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Django}}
+              </dd>
+              <dt>
+                  Magento
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Magento}}
+              </dd>
+              <dt>
+                  PHP
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.PHP}}
+              </dd>
+              <dt>
+                  Wordpress
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Wordpress}}
+              </dd>
+              <dt>
+                  Phyton
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Phyton}}
+              </dd>
+              <dt>
+                  Ruby
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Ruby}}
+              </dd>
+              <dt>
+                  SQLServer
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.SQLServer}}
+              </dd>
+              <dt>
+                  MySQL
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.MySQL}}
+              </dd>
+              <dt>
+                  SalesForce
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.SalesForce}}
+              </dd>
+              <dt>
+                  Photoshop
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Photoshop}}
+              </dd>
+              <dt>
+                  Illustrator
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.Illustrator}}
+              </dd>
+              <dt>
+                  SEO
+              </dt>
+              <dd>
+                  Nível {{candidato.Conhecimentos.SEO}}
+              </dd>
+              <dt>
+                  Outras
+              </dt>
+              <dd>
+                  {{candidato.Conhecimentos.Outras}}
+              </dd>
+              <dt>
+                  Link para acesso ao CRUD
+              </dt>
+              <dd>
+                  {{candidato.Conhecimentos.LinkCRUDRepository}}
+              </dd>
+              <dt>
+                  Link para acesso ao portifólio.
+              </dt>
+              <dd>
+                  {{candidato.PortifolioURL}}
+              </dd>
+          </dl>
+          <hr>
+          <h4>Informações para pagamento</h4>
+          <dl class="dl-horizontal">
+              <dt>
+                  Nome do titular
+              </dt>
+              <dd>
+                  {{candidato.InformacaoParaPagamento.NomeTitular}}
+              </dd>
+              <dt>
+                  CPF
+              </dt>
+              <dd>
+                  {{candidato.InformacaoParaPagamento.CPF}}
+              </dd>
+              <dt>
+                  Banco
+              </dt>
+              <dd>
+                  {{candidato.InformacaoParaPagamento.Banco}}
+              </dd>
+              <dt>
+                  Agência
+              </dt>
+              <dd>
+                  {{candidato.InformacaoParaPagamento.Agencia}}
+              </dd>
+              <dt>
+                  Número da conta
+              </dt>
+              <dd>
+                  {{candidato.InformacaoParaPagamento.NumeroDaConta}}
+              </dd>
+              <dt>
+                  Tipo de conta
+              </dt>
+              <dd>
+                  {{getTipoDeContaDescription(candidato.InformacaoParaPagamento.TipoDeConta)}}
+              </dd>
+          </dl>
+      </div>
+      <p>
+          <a href="#!/candidato/update/{{candidato.Id}}" href="">Editar</a> |
+          <a href="#!/candidato">Voltar a listagem</a>
+      </p>
+      <hr />
+      <footer-component></footer-component>
+  </div>
+</div>
